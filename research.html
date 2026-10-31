@@ -5,14 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>For Researchers — RPL3L Initiative</title>
 <meta name="description" content="Scientific resources on RPL3L and CMD2D: variant spectrum, dual loss-/gain-of-function mechanism, open questions, and primary literature.">
+<link rel="canonical" href="https://rpl3l.org/research.html">
+<meta name="theme-color" content="#0b0d12">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RPL3L Initiative">
+<meta property="og:url" content="https://rpl3l.org/research.html">
+<meta property="og:title" content="For Researchers — RPL3L Initiative">
+<meta property="og:description" content="Scientific resources on RPL3L and CMD2D: variant spectrum, dual loss-/gain-of-function mechanism, open questions, and primary literature.">
+<meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<script src="assets/site.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="site">
   <div class="navwrap">
-    <a class="brand" href="index.html">
+    <a class="brand" href="index.html" aria-label="RPL3L Initiative — home">
       <svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
         <defs>
           <linearGradient id="heartGrad" x1="0" y1="0" x2="1" y2="1">
@@ -27,23 +37,18 @@
       </svg>
       <span class="name">RPL3L Initiative<small>From rare disease to real hope</small></span>
     </a>
-    <nav class="main" aria-label="Main navigation">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="main" id="site-nav" aria-label="Main navigation">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About RPL3L</a></li>
-        <li><a href="cmd2d.html">CMD2D Disease</a></li>
-        <li><a href="patients.html">Patients &amp; Families</a></li>
-        <li><a href="research.html" class="active">For Researchers</a></li>
-        <li><a href="explorer.html">Variant Explorer</a></li>
-        <li><a href="support.html">Get Involved</a></li>
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About RPL3L</a></li><li><a href="cmd2d.html">CMD2D Disease</a></li><li><a href="patients.html">Patients &amp; Families</a></li><li><a href="research.html" aria-current="page">For Researchers</a></li><li><a href="explorer.html">Variant Explorer</a></li><li><a href="support.html">Get Involved</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main">
   <section>
-    <h2>RPL3L &amp; CMD2D: a scientific overview</h2>
+    <h1 class="page-title">RPL3L &amp; CMD2D: a scientific overview</h1>
     <p>
       <em>RPL3L</em> (OMIM 617416; 16p13.3; NM_005061; 10 exons) encodes 60S ribosomal protein L3-like
       (UniProt <a href="https://www.uniprot.org/uniprotkb/Q92901" target="_blank" rel="noopener">Q92901</a>, 407 aa),
@@ -68,10 +73,9 @@
       uniparental disomy). Additional case reports describe pairs of non-hotspot missense variants
       (<a href="https://doi.org/10.3390/children9101495" target="_blank" rel="noopener">Das 2022</a>; <a href="https://doi.org/10.1002/ajmg.a.64225" target="_blank" rel="noopener">Zhang 2026</a>). Heterozygous carriers are unaffected.
     </p>
-    <figure style="margin:1.5rem 0">
-      <img src="assets/rpl3l_protein_variants.png" alt="Protein model of RPL3L showing the positions of all reported pathogenic variants"
-           style="width:100%;height:auto;border:1px solid var(--border,#ddd);border-radius:12px;background:#fff" loading="lazy">
-      <figcaption style="font-size:0.85rem;color:var(--muted,#666);margin-top:0.5rem">
+    <figure class="figure">
+      <img src="assets/rpl3l_protein_variants.png" alt="Protein model of RPL3L showing the positions of all reported pathogenic variants" loading="lazy">
+      <figcaption>
         The 407–amino-acid RPL3L protein (uL3 family) with every reported variant, color-coded by family
         (13 reported families: 11 confirmed in Murphy et&nbsp;al. 2026 plus the Zhang 2026 and Mai 2026 reports),
         in the style of Murphy et&nbsp;al. (2026). Circles are missense variants; squares are frameshift and splice
@@ -201,7 +205,7 @@
         </tr>
       </table>
     </div>
-    <p style="font-size:0.85rem;color:var(--muted)">
+    <p class="fine">
       Note: this table is a literature summary maintained in good faith; verify against OMIM 617416 and ClinVar
       before clinical use. Contact us to report new alleles — we maintain a community variant log.
     </p>
@@ -301,17 +305,20 @@
 <footer class="site">
   <div class="inner">
     <div>
-      <strong>RPL3L Initiative</strong><br>
-      From rare disease to real hope<br>
-      <a href="index.html">Home</a> · <a href="about.html">About RPL3L</a> · <a href="cmd2d.html">CMD2D</a>
+      <strong>RPL3L Initiative</strong>
+      <div class="tagline">From rare disease to real hope</div>
+      <div class="tagline"><a href="mailto:rpl3l-initiative@cumc.columbia.edu">rpl3l-initiative@cumc.columbia.edu</a></div>
     </div>
     <div>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a> · <a href="about.html">About RPL3L</a> · <a href="cmd2d.html">CMD2D</a><br>
       <a href="patients.html">Patients &amp; Families</a><br>
       <a href="research.html">For Researchers</a><br>
       <a href="explorer.html">Variant Explorer</a><br>
       <a href="support.html">Get Involved</a>
     </div>
     <div>
+      <h4>Reference IDs</h4>
       OMIM 619371 (CMD2D) · OMIM 617416 (<em>RPL3L</em>)<br>
       UniProt Q92901 (RL3L_HUMAN)
     </div>
@@ -319,7 +326,7 @@
   <div class="disclaimer">
     This website is for informational purposes only and does not provide medical advice, diagnosis, or treatment
     recommendations. Always consult a qualified physician and a genetic counselor about any condition, test, or
-    therapy. Content is summarized from the published scientific literature; see above for sources.
+    therapy. Content is summarized from the published scientific literature; see the Researchers page for sources.
   </div>
 </footer>
 

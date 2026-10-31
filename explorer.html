@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Variant Explorer — RPL3L AlphaMissense predictions — RPL3L Initiative</title>
 <meta name="description" content="Searchable AlphaMissense pathogenicity predictions for all 2,400 possible missense variants in RPL3L, with gnomAD population frequencies and CMD2D-observed variant flags.">
+<link rel="canonical" href="https://rpl3l.org/explorer.html">
+<meta name="theme-color" content="#0b0d12">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RPL3L Initiative">
+<meta property="og:url" content="https://rpl3l.org/explorer.html">
+<meta property="og:title" content="Variant Explorer — RPL3L AlphaMissense predictions — RPL3L Initiative">
+<meta property="og:description" content="Searchable AlphaMissense pathogenicity predictions for all 2,400 possible missense variants in RPL3L, with gnomAD population frequencies and CMD2D-observed variant flags.">
+<meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <style>
@@ -30,12 +38,14 @@
   .legend-scale { display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; color:var(--muted, #666); margin:0.5rem 0 0; }
   .legend-scale .bar { width:140px; height:10px; border-radius:999px; background:linear-gradient(90deg, #4CAF50, #FFC107, #E53935); }
 </style>
+<script src="assets/site.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="site">
   <div class="navwrap">
-    <a class="brand" href="index.html">
+    <a class="brand" href="index.html" aria-label="RPL3L Initiative — home">
       <svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
         <defs>
           <linearGradient id="heartGrad" x1="0" y1="0" x2="1" y2="1">
@@ -50,23 +60,18 @@
       </svg>
       <span class="name">RPL3L Initiative<small>From rare disease to real hope</small></span>
     </a>
-    <nav class="main" aria-label="Main navigation">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="main" id="site-nav" aria-label="Main navigation">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About RPL3L</a></li>
-        <li><a href="cmd2d.html">CMD2D Disease</a></li>
-        <li><a href="patients.html">Patients &amp; Families</a></li>
-        <li><a href="research.html">For Researchers</a></li>
-        <li><a href="explorer.html" class="active">Variant Explorer</a></li>
-        <li><a href="support.html">Get Involved</a></li>
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About RPL3L</a></li><li><a href="cmd2d.html">CMD2D Disease</a></li><li><a href="patients.html">Patients &amp; Families</a></li><li><a href="research.html">For Researchers</a></li><li><a href="explorer.html" aria-current="page">Variant Explorer</a></li><li><a href="support.html">Get Involved</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="main">
   <section>
-    <h2>RPL3L Variant Explorer</h2>
+    <h1 class="page-title">RPL3L Variant Explorer</h1>
     <p>
       Pathogenicity predictions from <strong>AlphaMissense</strong> (<a href="https://doi.org/10.1126/science.adg7492" target="_blank" rel="noopener">Cheng et&nbsp;al., <em>Science</em> 2023</a>)
       for <strong>all 2,400 missense amino-acid substitutions reachable by a single-nucleotide change</strong> in RPL3L (canonical transcript
@@ -124,7 +129,7 @@
         <tbody id="tbody"></tbody>
       </table>
     </div>
-    <p style="font-size:0.85rem;color:var(--muted)">
+    <p class="fine">
       Data: AlphaMissense predictions (DeepMind Technologies Limited; CC BY 4.0), canonical transcript
       ENST00000268661.8, GRCh38. Classification thresholds: likely_benign &lt; 0.34 &lt; ambiguous &lt; 0.564 &lt;
       likely_pathogenic. Frequencies: gnomAD v4 (exome + genome allele counts combined; "absent" = variant not
@@ -138,17 +143,20 @@
 <footer class="site">
   <div class="inner">
     <div>
-      <strong>RPL3L Initiative</strong><br>
-      From rare disease to real hope<br>
-      <a href="index.html">Home</a> · <a href="about.html">About RPL3L</a> · <a href="cmd2d.html">CMD2D</a>
+      <strong>RPL3L Initiative</strong>
+      <div class="tagline">From rare disease to real hope</div>
+      <div class="tagline"><a href="mailto:rpl3l-initiative@cumc.columbia.edu">rpl3l-initiative@cumc.columbia.edu</a></div>
     </div>
     <div>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a> · <a href="about.html">About RPL3L</a> · <a href="cmd2d.html">CMD2D</a><br>
       <a href="patients.html">Patients &amp; Families</a><br>
       <a href="research.html">For Researchers</a><br>
       <a href="explorer.html">Variant Explorer</a><br>
       <a href="support.html">Get Involved</a>
     </div>
     <div>
+      <h4>Reference IDs</h4>
       OMIM 619371 (CMD2D) · OMIM 617416 (<em>RPL3L</em>)<br>
       UniProt Q92901 (RL3L_HUMAN)
     </div>
