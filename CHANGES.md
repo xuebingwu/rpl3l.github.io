@@ -29,3 +29,12 @@ contact email now also appears on the homepage and footer. Explorer data and all
   Bump the version (all *.html) whenever styles.css or site.js changes.
 - Variant Explorer: frequencies shown as allele frequency (e.g. 1.4×10⁻⁶), not percent; variants absent from
   gnomAD shown as "0" instead of "absent"; filter labels now AF < 0.001 / AF < 0.0001.
+- Variant Explorer data audit (2026-10-31), checked against gnomAD API, gnomAD v4.1 all-sites AN tables and Ensembl:
+  - All 2,400 genomic coordinates ↔ protein changes, all AlphaMissense scores/classes, rsIDs, and CMD2D
+    variant cDNA changes verified correct.
+  - Counts switched to gnomAD v4.1 *joint* AC/AN. Previously AN covered only the dataset (exome or genome) where
+    a variant was seen, overstating AF ~10% for 500 exome-only and ~10-fold for 37 genome-only variants.
+  - Variants absent from gnomAD now show the real allele number at that site (0/N) from the all-sites AN tables.
+  - 241 substitutions reachable by two different SNVs now list both (276 extra alleles; 17 of them are in
+    gnomAD and were previously not counted); frequency shown is the combined total.
+  - cDNA (c.) notation shown for every allele and searchable; 18 alleles failing gnomAD AS_VQSR flagged.
