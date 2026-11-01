@@ -23,3 +23,5 @@ contact email now also appears on the homepage and footer. Explorer data and all
 - CMD2D page: Genetics list now names both recurrent hotspots (G27D and D308N/V).
 - Get Involved: tabbed layout (Families / Clinicians / Researchers / Donors) with a new Donors tab;
   tabs deep-link via support.html#donors etc.
+- Running text (paragraphs, lists, callouts) now spans the full content width, matching tables and figures
+  (removed the 70ch line-length cap).

@@ -17,7 +17,6 @@
   --maxw: 1100px;
   --border: #e6e4dc;
   --surface: #ffffff;
-  --measure: 70ch;
   --blue-ink: #0262c2;
 }
 
@@ -436,9 +435,7 @@ figure.heroimg figcaption { font-size: 0.82rem; color: var(--muted); margin-top:
 }
 .skip-link:focus { top: 0; }
 
-/* readable line length for running text */
-main section > p, main section > .callout p, main section > ul, main section > ol, details p { max-width: var(--measure); }
-main section > .table-scroll, main section > .cards, main section > .facts, main section > figure { max-width: none; }
+/* running text spans the same width as tables, cards, and figures */
 main ul, main ol { padding-left: 1.3rem; }
 main li { margin: 0.3rem 0; }
 
@@ -537,7 +534,6 @@ footer.site .tagline { opacity: 0.8; line-height: 1.5; }
   footer.site { background: none; color: #000; }
 }
 
-.callout { max-width: calc(var(--measure) + 3rem); }
 
 /* ---------- Tabs (Get Involved) ---------- */
 .tabs:not(.tabs-on) .tabpanel { margin-bottom: 1rem; }
