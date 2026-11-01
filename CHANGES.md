@@ -11,3 +11,15 @@ contact email now also appears on the homepage and footer. Explorer data and all
 - Canonical, Open Graph, Twitter, theme-color meta; Organization/WebSite JSON-LD on homepage
 - Print stylesheet (nav hidden, link URLs shown)
 - Footer: grouped columns + contact email
+
+# 2026-10-31 fixes
+
+- Variant Explorer: gnomAD frequencies were computed from 6-decimal-rounded AFs and printed without a `%`
+  for rare variants (e.g. 2/1,423,690 showed as "1.0e-4"); now recomputed from AC/AN and always shown as a
+  percentage (e.g. 1.4×10⁻⁴%). Legend now explains "absent" vs "0".
+- Header nav: switches to the Menu toggle below 1100px (was 1000px) so it never wraps onto two lines;
+  "Get Involved" styled as the call to action.
+- Homepage family count aligned with the Researchers page (13 = 11 confirmed + 2 case reports).
+- CMD2D page: Genetics list now names both recurrent hotspots (G27D and D308N/V).
+- Get Involved: tabbed layout (Families / Clinicians / Researchers / Donors) with a new Donors tab;
+  tabs deep-link via support.html#donors etc.

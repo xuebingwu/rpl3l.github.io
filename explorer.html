@@ -132,8 +132,9 @@
     <p class="fine">
       Data: AlphaMissense predictions (DeepMind Technologies Limited; CC BY 4.0), canonical transcript
       ENST00000268661.8, GRCh38. Classification thresholds: likely_benign &lt; 0.34 &lt; ambiguous &lt; 0.564 &lt;
-      likely_pathogenic. Frequencies: gnomAD v4 (exome + genome allele counts combined; "absent" = variant not
-      found in gnomAD v4). AlphaMissense has not been validated for, and is not approved for, any clinical use.
+      likely_pathogenic. Frequencies: gnomAD v4 (exome + genome allele counts combined), shown as a percentage of
+      alleles with the allele count / allele number in parentheses; "absent" = variant not found in gnomAD v4;
+      "0" = variant listed in gnomAD v4 but with no carriers passing quality filters. AlphaMissense has not been validated for, and is not approved for, any clinical use.
       Observed-variant annotations are summarized from the primary literature (see
       <a href="research.html">For Researchers</a>).
     </p>
@@ -184,10 +185,19 @@ function scoreColor(s){
   const c = lo[1].map((v,i)=>Math.round(v+(hi[1][i]-v)*t));
   return `rgb(${c[0]},${c[1]},${c[2]})`;
 }
+// Stored AFs are rounded to 6 decimals; recompute from allele counts so rare variants are exact
+DATA.forEach(r => { if (r.an > 0) r.af = r.ac / r.an; });
 function afHTML(r){
   if (!r.in_gnomad) return '<span class="af-absent">absent</span>';
   if (r.af === 0) return `0 <span class="rsid">(${r.ac}/${r.an})</span>`;
-  const pct = r.af < 0.0001 ? (r.af*100).toExponential(1) : (r.af*100).toFixed(r.af < 0.001 ? 4 : 2) + "%";
+  // Always a percentage: 2 significant figures, scientific notation below 0.01%
+  const p = r.af * 100;
+  let pct;
+  if (p >= 0.01) pct = p.toPrecision(2) + "%";
+  else {
+    const [m, e] = p.toExponential(1).split("e");
+    pct = `${m}×10<sup>${Number(e)}</sup>%`;
+  }
   return `${pct} <span class="rsid">(${r.ac}/${r.an})</span>`;
 }
 function threeLetter(v){

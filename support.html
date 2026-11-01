@@ -49,18 +49,47 @@
 <main id="main">
   <section>
     <h1 class="page-title">Ways to get involved</h1>
-    <div class="cards">
-      <div class="card c-pink">
+    <div class="tabs" data-tabs>
+      <div class="tablist" role="tablist" aria-label="Who are you?" hidden>
+        <button role="tab" id="tab-families" aria-controls="families" aria-selected="true">Families</button>
+        <button role="tab" id="tab-clinicians" aria-controls="clinicians" aria-selected="false" tabindex="-1">Clinicians</button>
+        <button role="tab" id="tab-researchers" aria-controls="researchers" aria-selected="false" tabindex="-1">Researchers</button>
+        <button role="tab" id="tab-donors" aria-controls="donors" aria-selected="false" tabindex="-1">Donors</button>
+      </div>
+
+      <div class="card c-pink tabpanel" role="tabpanel" id="families" aria-labelledby="tab-families">
         <h3>Families</h3>
         <p>Join the registry, share your story, connect with other CMD2D families. Your experience is data — and hope.</p>
+        <p class="tab-cta"><a class="btn primary" href="mailto:rpl3l-initiative@cumc.columbia.edu?subject=Family%20contact">Contact us as a family</a></p>
       </div>
-      <div class="card c-blue">
+      <div class="card c-blue tabpanel" role="tabpanel" id="clinicians" aria-labelledby="tab-clinicians">
         <h3>Clinicians</h3>
         <p>Refer suspected or confirmed cases; contribute de-identified clinical data; help us build recognition tools for neonatal DCM workups.</p>
+        <p class="tab-cta"><a class="btn primary" href="mailto:rpl3l-initiative@cumc.columbia.edu?subject=Clinician%20referral%20or%20inquiry">Refer a case or ask a question</a></p>
       </div>
-      <div class="card c-orange">
+      <div class="card c-orange tabpanel" role="tabpanel" id="researchers" aria-labelledby="tab-researchers">
         <h3>Researchers</h3>
         <p>Propose collaborations and request cell lines and reagents as they become available.</p>
+        <p class="tab-cta"><a class="btn primary" href="mailto:rpl3l-initiative@cumc.columbia.edu?subject=Research%20collaboration">Propose a collaboration</a></p>
+      </div>
+      <div class="card c-green tabpanel" role="tabpanel" id="donors" aria-labelledby="tab-donors">
+        <h3>Donors</h3>
+        <p>
+          Ultra-rare diseases like CMD2D rarely attract large-scale funding — with only a handful of known families,
+          philanthropy is often what moves research from discovery toward treatment. Your gift helps us:
+        </p>
+        <ul>
+          <li><strong>Build the patient registry</strong> so every affected family can be found, connected, and counted</li>
+          <li><strong>Characterize variants</strong> so families get clearer genetic answers, faster</li>
+          <li><strong>Develop disease models</strong> — patient stem-cell–derived heart cells and engineered heart tissue</li>
+          <li><strong>Explore therapies</strong> that exploit the RPL3–RPL3L paralog system, including RPL3, the heart's back-up ribosomal protein</li>
+        </ul>
+        <p>
+          Gifts can be made in honor or memory of a loved one, and we welcome partnerships with foundations and
+          companies. Contact us and we will share how to give and how your support will be used.
+        </p>
+        <!-- TODO: add the Columbia University online giving link for the RPL3L Initiative fund when available -->
+        <p class="tab-cta"><a class="btn primary" href="mailto:rpl3l-initiative@cumc.columbia.edu?subject=Supporting%20the%20RPL3L%20Initiative">Ask about giving</a></p>
       </div>
     </div>
   </section>
@@ -68,7 +97,7 @@
   <section>
     <h2>Contact</h2>
     <p>
-      The RPL3L Initiative is in formation. Whether you are a family, clinician, or researcher,
+      The RPL3L Initiative is in formation. Whether you are a family, clinician, researcher, or donor,
       please reach out:
     </p>
     <div class="contact-box"><p class="email"><a href="mailto:rpl3l-initiative@cumc.columbia.edu">rpl3l-initiative@cumc.columbia.edu</a></p></div>
