@@ -25,3 +25,5 @@ contact email now also appears on the homepage and footer. Explorer data and all
   tabs deep-link via support.html#donors etc.
 - Running text (paragraphs, lists, callouts) now spans the full content width, matching tables and figures
   (removed the 70ch line-length cap).
+- Cache-busting: CSS/JS links carry a `?v=` version so browsers fetch the new files after a deploy.
+  Bump the version (all *.html) whenever styles.css or site.js changes.
