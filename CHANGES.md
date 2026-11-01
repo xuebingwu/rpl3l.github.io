@@ -27,3 +27,5 @@ contact email now also appears on the homepage and footer. Explorer data and all
   (removed the 70ch line-length cap).
 - Cache-busting: CSS/JS links carry a `?v=` version so browsers fetch the new files after a deploy.
   Bump the version (all *.html) whenever styles.css or site.js changes.
+- Variant Explorer: frequencies shown as allele frequency (e.g. 1.4×10⁻⁶), not percent; variants absent from
+  gnomAD shown as "0" instead of "absent"; filter labels now AF < 0.001 / AF < 0.0001.

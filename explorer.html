@@ -26,7 +26,6 @@
   .stats-line { font-size:0.9rem; color:var(--muted, #666); margin-bottom:0.75rem; }
   .score-chip { display:inline-block; min-width:3.2em; text-align:center; padding:0.15em 0.5em; border-radius:999px; font-weight:600; font-size:0.85em; color:#fff; }
   .af-cell { font-variant-numeric: tabular-nums; white-space:nowrap; }
-  .af-absent { color:#0279EE; font-weight:600; }
   .badge-known { display:inline-block; padding:0.12em 0.55em; border-radius:999px; font-size:0.78em; font-weight:600; background:rgba(2,121,238,0.12); color:#0279EE; white-space:nowrap; }
   .badge-cpvt { background:rgba(255,148,0,0.15); color:#B56A00; }
   .badge-snp  { background:rgba(117,160,37,0.15); color:#4F7016; }
@@ -108,8 +107,8 @@
       <select id="freq" aria-label="Filter by frequency">
         <option value="all">All frequencies</option>
         <option value="absent">Absent from gnomAD</option>
-        <option value="rare">AF &lt; 0.1%</option>
-        <option value="veryrare">AF &lt; 0.01%</option>
+        <option value="rare">AF &lt; 0.001</option>
+        <option value="veryrare">AF &lt; 0.0001</option>
       </select>
       <label><input type="checkbox" id="knownOnly"> Observed variants only</label>
       <select id="sort" aria-label="Sort order">
@@ -132,9 +131,9 @@
     <p class="fine">
       Data: AlphaMissense predictions (DeepMind Technologies Limited; CC BY 4.0), canonical transcript
       ENST00000268661.8, GRCh38. Classification thresholds: likely_benign &lt; 0.34 &lt; ambiguous &lt; 0.564 &lt;
-      likely_pathogenic. Frequencies: gnomAD v4 (exome + genome allele counts combined), shown as a percentage of
-      alleles with the allele count / allele number in parentheses; "absent" = variant not found in gnomAD v4;
-      "0" = variant listed in gnomAD v4 but with no carriers passing quality filters. AlphaMissense has not been validated for, and is not approved for, any clinical use.
+      likely_pathogenic. Frequencies: gnomAD v4 (exome + genome allele counts combined), shown as allele
+      frequency with the allele count / allele number in parentheses; a bare "0" = variant not found in gnomAD v4;
+      "0 (0/N)" = variant listed in gnomAD v4 but with no carriers passing quality filters. AlphaMissense has not been validated for, and is not approved for, any clinical use.
       Observed-variant annotations are summarized from the primary literature (see
       <a href="research.html">For Researchers</a>).
     </p>
@@ -188,17 +187,12 @@ function scoreColor(s){
 // Stored AFs are rounded to 6 decimals; recompute from allele counts so rare variants are exact
 DATA.forEach(r => { if (r.an > 0) r.af = r.ac / r.an; });
 function afHTML(r){
-  if (!r.in_gnomad) return '<span class="af-absent">absent</span>';
+  // Variants absent from gnomAD have no allele number, so show a bare 0
+  if (!r.in_gnomad) return '0';
   if (r.af === 0) return `0 <span class="rsid">(${r.ac}/${r.an})</span>`;
-  // Always a percentage: 2 significant figures, scientific notation below 0.01%
-  const p = r.af * 100;
-  let pct;
-  if (p >= 0.01) pct = p.toPrecision(2) + "%";
-  else {
-    const [m, e] = p.toExponential(1).split("e");
-    pct = `${m}×10<sup>${Number(e)}</sup>%`;
-  }
-  return `${pct} <span class="rsid">(${r.ac}/${r.an})</span>`;
+  // Allele frequency (not a percentage), 2 significant figures in scientific notation
+  const [m, e] = r.af.toExponential(1).split("e");
+  return `${m}×10<sup>${Number(e)}</sup> <span class="rsid">(${r.ac}/${r.an})</span>`;
 }
 function threeLetter(v){
   const m = v.match(/^([A-Z])(\d+)([A-Z*])$/);
